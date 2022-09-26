@@ -1,0 +1,13 @@
+_BASE_: [
+  './beta_voc.yml',
+  './runtime.yml',
+  './optimizer_40e.yml',
+  './yolov3_mobilenet_v1.yml',
+  './yolov3_reader.yml',
+]
+pretrain_weights: https://paddledet.bj.bcebos.com/models/yolov3_mobilenet_v1_270e_coco.pdparams
+weights:
+
+YOLOv3Loss:
+  ignore_thresh: 0.7
+  label_smooth: true

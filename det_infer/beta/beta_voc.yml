@@ -1,0 +1,24 @@
+metric: VOC
+map_type: integral
+num_classes: 10
+# use_default_label: False
+
+TrainDataset:
+  !VOCDataSet
+    # allow_empty: true
+    dataset_dir: D:/wjs/detection_data_set/alpha
+    anno_path: train.txt
+    label_list: label_list.txt
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'truncated']
+
+EvalDataset:
+  !VOCDataSet
+    dataset_dir: D:/wjs/detection_data_set/alpha
+    anno_path: eval.txt
+    label_list: label_list.txt
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'truncated']
+
+TestDataset:
+  !ImageFolder
+    anno_path: D:/wjs/detection_data_set/alpha/label_list.txt
+    use_default_label: False
